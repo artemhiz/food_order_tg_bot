@@ -1,8 +1,16 @@
 require('dotenv').config();
+const express = require('express');
+const app = express();
 const TelegramAPI = require('node-telegram-bot-api');
 const products = require('./catalog/catalog');
 const bot = new TelegramAPI(process.env.TOKEN, { polling: true });
 const adminID = process.env.ADMIN_ID_ORDERS;
+
+app.get('/', (req, res) => {
+    res.send('Hello world!');
+})
+const port = process.env.port || 3001
+app.listen(port, () => console.log(`Server listens at port ${port}`));
 
 let selectedItem = {};
 let shoppingCart = {};
