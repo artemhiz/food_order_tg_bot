@@ -318,8 +318,8 @@ ${orderCache[chatID].pickup ? 'Самовывоз' : 'С доставкой на
                         totalPrice += item.countable ? item.price * item.quantity : item.price / 1000 * item.quantity;
                     })
                     await bot.sendMessage(adminID, `❕ Новый заказ\nЗаказчик(-ца): ${orderCache[chatID].name}\nНомер телефона: ${orderCache[chatID].telephone}\n${orderCache[chatID].pickup ? 'Самовывоз' : 'Доставка'}\nЗаказ: ${orderCache[chatID].cart.map(item => {
-                        return `${item.title} – ${item.quantity} ${item.countable ? 'шт.' : 'гр'}\n\nОбщая сумма: ${totalPrice}`
-                    }).join('\n')}`);
+                        return `${item.title} – ${item.quantity} ${item.countable ? 'шт.' : 'гр'}`
+                    }).join('\n')}\n\nОбщая сумма: ${totalPrice}`);
                     orderCache[chatID].cart.forEach(async item => {
                         await products.reserveProduct(item.title, item.quantity);
                     })
