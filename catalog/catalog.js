@@ -1,5 +1,5 @@
 const sqlite3 = require('sqlite3');
-const db = new sqlite3.Database("catalog.db", error => {
+const db = new sqlite3.Database("catalog/catalog.db", error => {
     if (error) throw new Error('Could not find Catalog database');
     console.log('Connected to Catalog Database');
 })
